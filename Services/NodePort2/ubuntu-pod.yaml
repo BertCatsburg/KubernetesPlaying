@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: ubuntu-app
+  labels:
+    run: ubuntu-app
+
+spec:
+  containers:
+    - name: ubuntu
+      image: ubuntu:18.04
+      command: [ "/bin/bash", "-c", "--", "sleep 604800" ]
+  restartPolicy: Always

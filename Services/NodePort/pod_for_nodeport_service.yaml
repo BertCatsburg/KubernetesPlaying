@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: np01
+    app.kubernetes.io/name: MyApp
+  name: np01
+spec:
+  containers:
+  - image: nginx
+    name: np01
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

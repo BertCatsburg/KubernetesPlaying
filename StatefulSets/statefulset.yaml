@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: nginx1
+  name: sfs-name
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginxSFS
+  serviceName: nginx # Optional, but allows Stable Service IDs
+  template:
+    metadata:
+      labels:
+        app: nginxSFS
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
