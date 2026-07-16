@@ -2,13 +2,21 @@
   "name": "code",
   "version": "1.0.0",
   "description": "Small Microservice",
-  "author": "Bert Catsburg",
+  "author": "",
   "main": "index.ts",
   "scripts": {
-    "start": "node src/index.ts"
+    "start": "npx tsx src/index.ts "
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.1.1",
+    "tsx": "^4.23.0",
+    "typescript": "^7.0.2"
+  }
 }

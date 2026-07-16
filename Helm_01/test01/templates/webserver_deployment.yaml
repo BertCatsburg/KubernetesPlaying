@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.webserver.name }}
+  name: {{ .Values.webserver.name }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{ .Values.webserver.name }}
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.webserver.name }}
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+          - containerPort: 80
+        resources: {}
+status: {}

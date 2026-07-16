@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  myvalue: "Hello World"
+  release_revision: "{{ .Release.Revision }}"
+  release_name: "{{ .Release.Name }}"
+  release_namespace: "{{ .Release.Namespace }}"
+  release_service: "{{ .Release.Service }}"
+  values_zork: "{{ .Values.zork }}"
+  capabilities_apiversions: "{{/* .Capabilities.APIVersions */}}"
+  chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+  chart_type: "{{ .Chart.Type }}"
+  chart_keywords: "{{ .Chart.Keywords }}"
+  # Next line: Accessing first element in the Maintainers array
+  maintainer: "{{ (index .Chart.Maintainers 0).Name}} ({{ (index .Chart.Maintainers 0).Email }})"
+  capabilities_kubeversion: "{{ .Capabilities.KubeVersion }}"
+  Capabilities_HelmVersion_GitTreeState: "{{ .Capabilities.HelmVersion.GitTreeState }}"

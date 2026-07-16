@@ -1,0 +1,12 @@
+***************************************
+This Helm is a Playground to test out different things.
+
+The Chart is {{ .Chart.Name }} with version {{ .Chart.Version }}
+
+- Webserver deployment with 3 replicas
+- Configmap with a number of keys
+- Simple Ubuntu pod
+
+Dive into the Ubuntu Pod: **kubectl exec -it pod/shell -n helmp -- bash**
+Next step: Can we access it with DNS name
+

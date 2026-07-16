@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: shell
+  name: shell
+spec:
+  containers:
+  - name: shell
+    command:
+    - sleep
+    - 999d
+    image: {{ .Values.shellpod.image }}
+    volumeMounts:
+      - mountPath: /data
+        name: storage
+    lifecycle:
+      postStart:
+        exec:
+          command: ["/bin/sh", "-c", "echo 'Hello, World!' >> /message "]
+    resources: {}
+  volumes:
+    - name: storage
+      persistentVolumeClaim:
+        claimName: manual-claim
+
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

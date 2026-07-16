@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv001
+spec:
+  storageClassName: local-path  # Matches the name of the SC we already have.
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/var/lib/rancher/k3s/storage/pv001"  # Specific for the backend of the StorageClass
+    type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: manual-claim
+spec:
+  storageClassName: local-path  # Connection to StorageClass
+  volumeName: pv001             # Connection to PersistentVolume
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Mi

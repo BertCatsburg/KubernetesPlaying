@@ -1,0 +1,10 @@
+
+localregistry:
+  clusterIP: "10.96.1.2"
+
+  replicaCount: 2
+
+  image:
+    repository: registry
+    pullPolicy: IfNotPresent
+    tag: "3.1.1"

@@ -7,4 +7,4 @@ RUN npm install
 
 COPY code/src /app/src
 
-CMD ["npm", "start"]
+CMD ["npx", "tsx", "index.ts"]

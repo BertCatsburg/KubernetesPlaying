@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: localregistry
+  name: localregistry
+spec:
+  replicas: {{ .Values.localregistry.replicaCount}}
+  selector:
+    matchLabels:
+      app: localregistry
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: localregistry
+    spec:
+      containers:
+      - image: {{ .Values.localregistry.image.repository }}:{{ .Values.localregistry.image.tag}}
+        name: localregistry
+        ports:
+          - containerPort: 5000
+
+        resources: {}
+status: {}
