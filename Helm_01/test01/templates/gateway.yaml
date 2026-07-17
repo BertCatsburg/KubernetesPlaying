@@ -1,0 +1,15 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: bertgateway
+spec:
+  gatewayClassName: nginx  # kubectl get gatewayclass
+  listeners:
+  # 1 Listener for HTTP on port 80
+  - name: http-traffic
+    protocol: HTTP
+    port: 80
+    hostname: webserver.bert
+    allowedRoutes:
+      namespaces:
+        from: All

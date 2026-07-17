@@ -26,6 +26,7 @@ if [[ -z $x ]]
 then
   helm install $helmname $helmdir --namespace=$namespace
 else
+  echo "** Upgrading **"
   helm upgrade $helmname $helmdir --namespace=$namespace
 fi
 
