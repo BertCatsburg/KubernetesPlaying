@@ -1,12 +1,9 @@
 ***************************************
-This Helm is a Playground to test out different things.
-
-The Chart is {{ .Chart.Name }} with version {{ .Chart.Version }}
-
 - Webserver deployment with 3 replicas
 - Configmap with a number of keys
-- Simple Ubuntu pod
+- Simple Ubuntu pod for debugging called "shell"
+- Gateway API to the Webserver
 
-Dive into the Ubuntu Pod: **kubectl exec -it pod/shell -n helmp -- bash**
-Next step: Can we access it with DNS name
-
+Access the webserver:
+- From the outside: http://webserver.bert/ (config this in /etc/hosts pointing to gateway IP)
+- From the inside: webserver.helmp.svc.cluster.local
