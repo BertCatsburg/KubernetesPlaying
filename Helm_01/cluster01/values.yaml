@@ -3,6 +3,8 @@ zork: "AAA"
 webserver:
   name: "bertserver"
   clusterIP: "10.96.1.1"
+  image: "##websiteImage##"
 
 shellpod:
   image: "nicolaka/netshoot"
+
