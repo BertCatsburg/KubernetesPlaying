@@ -1,9 +1,7 @@
 #!/bin/bash
 
 # *** Init
-helmname="helm01"
-helmdir="./cluster01"
-namespace="helmp"
+source ./lib/init.sh
 
 helm uninstall $helmname
 kubectl delete ns $namespace
