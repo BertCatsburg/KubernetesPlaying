@@ -16,8 +16,8 @@ spec:
         app: {{ .Values.webserver.name }}
     spec:
       containers:
-      - image: nginx
-        name: nginx
+      - image: {{ .Values.webserver.image }}
+        name: {{ .Values.webserver.name }}
         ports:
           - containerPort: 80
         resources: {}

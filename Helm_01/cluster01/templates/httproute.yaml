@@ -6,7 +6,7 @@ spec:
   parentRefs:
   - name: bertgateway
   hostnames:
-  - webserver.bert
+  - webserver.bert.local
   rules:
   - matches:
     - path:
