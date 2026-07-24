@@ -15,6 +15,7 @@ fi
 # *** Build the image
 if [ "$do_build" = true ]
 then
+  docker images | grep -e "$websiteImageName" | awk '{print "docker rmi --force " $1}' | bash
   docker buildx build --tag $websiteImageName:$websiteImageVersion --file $websiteDir/Dockerfile $websiteDir/
 fi
 
@@ -58,6 +59,10 @@ then
     helm upgrade $helmname $helmdir --namespace=$namespace
   fi
 fi
+
+# *** Starting the port-forward
+echo "*** About to start the port-forward to the Gateway Service"
+kubectl port-forward -n $namespace svc/bertgateway-nginx $localport:80
 
 
 

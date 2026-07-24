@@ -1,9 +1,9 @@
 ***************************************
-- Webserver deployment with 3 replicas
-- Configmap with a number of keys
+- Configmap with a number of (fake) keys
 - Simple Ubuntu pod for debugging called "shell"
+- Simple Webserver deployment with 3 replicas showing a simple website.
 - Gateway API to the Webserver
 
 Access the webserver:
-- From the outside: http://webserver.bert/ (config this in /etc/hosts pointing to gateway IP)
-- From the inside: webserver.helmp.svc.cluster.local
+- From the outside, to the Gateway:   kubectl -n helmp port-forward svc/bertgateway-nginx  8080:80
+- From the outside, to the Webserver: kubectl -n helmp port-forward svc/bertwebserver 8081:80
